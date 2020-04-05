@@ -1,12 +1,31 @@
 {%extends 'mainapp/base.html' %}
-
-    {%block title%}Login{%endblock%}
+{% load static %}
+{% load crispy_forms_tags %}
+{%block title%}Login{%endblock%}
 
     {%block content%}
-        <h2>Login</h2>
-        <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-        </form>
+        
+    <div class="container align-center">
+        <div class="row">
+            <div class="col-md-3 col-sm-1"></div>
+            <div class="col-md-6 col-sm-10">
+                <div class="content-section shadow-lg">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            <legend class="border-bottom mb-4 font">Sign in</legend>
+                            {{ form|crispy }}
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-outline-primary justify-content-end" type="Submit">Sign up</button>
+                        </div>
+                    </form>
+                    <div class="border-top pt-3">
+                        <small class="text-muted">Need an account? <a class="ml-2" href="{% url 'mainapp:register' %}">Sign up</a></small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-1"></div>
+        </div>
+    </div>
     {%endblock%}

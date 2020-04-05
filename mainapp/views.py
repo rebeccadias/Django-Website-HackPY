@@ -8,7 +8,7 @@ from .models import Hackathons,Cities
 @login_required(login_url="mainapp:login")
 def home(request):
     cities = Cities.objects.all()
-    return render(request,'mainapp/home.html',{'cities':cities})
+    return render(request,'mainapp/home.html',{'cities':cities, 'home': True, })
 
 
 def register_view(request):
@@ -42,3 +42,5 @@ def view_hack(request,city):
     hackathons = Hackathons.objects.all()
     return render(request, 'mainapp/hackathons.html', {'hackathons': hackathons, 'city': city})
 
+def about(request):
+    return render(request, 'mainapp/about.html', {'about': True })

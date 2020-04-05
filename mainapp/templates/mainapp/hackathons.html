@@ -1,10 +1,15 @@
 {%extends 'mainapp/base.html'%}
 
 {%block content%}
-    <h1>{{city}}</h1>
-    {%for hackathon in hackathons %}
-        <li>
-            <a href="{{hackathon.url}}">{{hackathon.title}}</a>
-        </li>
-    {%endfor%}
+<div class="container">
+    <legend class="border-bottom mb-4 font" style="text-align: center">{{city}}</legend>
+    <ul class="list-group">
+        {% for hackathon in hackathons %}
+              <a href="{{ hackathon.url }}">
+                   <li class="list-group-item">
+                    {{hackathon.title}}
+              </li> </a>
+          {%endfor%}
+      </ul>
+      </div>
 {%endblock%}
