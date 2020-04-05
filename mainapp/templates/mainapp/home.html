@@ -1,0 +1,9 @@
+{%extends 'mainapp/base.html'%}
+
+{%block content%}
+    {%for c in cities %}
+        <li>
+            <a href="{{c.city}}">{{c.city}}</a>
+        </li>
+    {%endfor%}
+{%endblock%}
